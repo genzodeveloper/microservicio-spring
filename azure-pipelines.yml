@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- https://github.com/genzodeveloper/microservicio-spring/tree/feature-ms-javierHormazabal-mensaje
 
 pool:
   vmImage: ubuntu-latest
