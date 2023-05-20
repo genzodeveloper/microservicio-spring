@@ -5,10 +5,11 @@ steps:
 
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'SonarCloud'
-    organization: 'aibarra17-org'
-    projectKey: 'Aibarra17-org_springpet-clinic'
-    projectName: 'springpet-clinic'
+    SonarCloud: 'azuredevopslab'
+    organization: 'genzodeveloper'
+    scannerMode: 'MSBuild'
+    projectKey: 'genzodeveloper_microservicio-spring'
+    projectName: 'microservicio-spring'
   displayName: 'SonarCloud Prepare'
 
 
