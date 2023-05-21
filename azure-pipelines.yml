@@ -58,3 +58,6 @@ steps:
     containerRegistry: 'Docker'
     repository: 'javierhormazabal/repository_labfinal'
     command: 'push'
+    tags: |
+              $(Build.BuildId)
+              latest
