@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - main
+      - feature-ms-javierHormazabal-finaliza-el-curso-devops-foundation-v4
 
 pr:
   branches:
@@ -11,6 +11,8 @@ pr:
 variables:
   dockerRegistry: 'Docker'
   dockerImageName: 'your-docker-image-name'
+
+
 
 stages:
 - stage: Build
@@ -29,6 +31,24 @@ stages:
       inputs:
         gradleWrapperFile: 'gradlew'
         tasks: 'clean build'
+
+    - task: Gradle@3
+      inputs:
+        gradleWrapperFile: 'gradlew'
+        tasks: 'build jacocoTestReport jacocoTestCoverageVerification'
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: false
+        spotBugsAnalysis: false
+    - task: PublishCodeCoverageResults@1
+      inputs:
+        codeCoverageTool: 'JaCoCo'
+        summaryFileLocation: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/test/jacocoTestReport.xml'
+        pathToSources: '$(System.DefaultWorkingDirectory)/src/main/java/'
+        reportDirectory: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/test'
+        failIfCoverageEmpty: true
+      displayName: 'Resultado Cobertura Codigo'
 
     - task: SonarCloudPrepare@1
       displayName: 'Prepare analysis on SonarCloud'
