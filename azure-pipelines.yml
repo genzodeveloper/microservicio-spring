@@ -19,7 +19,6 @@ steps:
   inputs:
     SonarCloud: 'azuredevopslab'
     organization: 'genzodeveloper'
-    scannerMode: 'MSBuild'
     projectKey: 'genzodeveloper_microservicio-spring'
     projectName: 'microservicio-spring'
   displayName: 'SonarCloud Prepare'
