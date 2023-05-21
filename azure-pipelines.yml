@@ -18,7 +18,7 @@ steps:
      pathToSources: '$(System.DefaultWorkingDirectory)/src/main/java/'
      reportDirectory: '$(System.DefaultWorkingDirectory)/build/reports/jacoco/test'
      failIfCoverageEmpty: true
-  displayName: 'Resultado Cobertura Codigo'
+  displayName: 'Pruebas unitarias'
 
 - task: SonarCloudPrepare@1
   inputs:
